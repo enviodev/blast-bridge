@@ -1,0 +1,95 @@
+type EventsSummary {
+  id: ID!
+  adminChanged: [AdminChanged!]! @derivedFrom(field: "eventsSummary")
+  adminChangedsCount: BigInt!
+  beaconUpgraded: [BeaconUpgraded!]! @derivedFrom(field: "eventsSummary")
+  beaconUpgradedsCount: BigInt!
+  eTHDeposited: [ETHDeposited!]! @derivedFrom(field: "eventsSummary")
+  eTHDepositedsCount: BigInt!
+  initialized: [Initialized!]! @derivedFrom(field: "eventsSummary")
+  initializedsCount: BigInt!
+  ownershipTransferStarted: [OwnershipTransferStarted!]!
+    @derivedFrom(field: "eventsSummary")
+  ownershipTransferStartedsCount: BigInt!
+  ownershipTransferred: [OwnershipTransferred!]!
+    @derivedFrom(field: "eventsSummary")
+  ownershipTransferredsCount: BigInt!
+  paused: [Paused!]! @derivedFrom(field: "eventsSummary")
+  pausedsCount: BigInt!
+  uSDDeposited: [USDDeposited!]! @derivedFrom(field: "eventsSummary")
+  uSDDepositedsCount: BigInt!
+  unpaused: [Unpaused!]! @derivedFrom(field: "eventsSummary")
+  unpausedsCount: BigInt!
+  upgraded: [Upgraded!]! @derivedFrom(field: "eventsSummary")
+  upgradedsCount: BigInt!
+}
+
+type AdminChanged {
+  id: ID!
+  previousAdmin: String!
+  newAdmin: String!
+  eventsSummary: String!
+}
+
+type BeaconUpgraded {
+  id: ID!
+  beacon: String!
+  eventsSummary: String!
+}
+
+type ETHDeposited {
+  id: ID!
+  user: String!
+  shares: BigInt!
+  amount: BigInt!
+  eventsSummary: String!
+  timestamp: Int!
+}
+
+type Initialized {
+  id: ID!
+  version: BigInt!
+  eventsSummary: String!
+}
+
+type OwnershipTransferStarted {
+  id: ID!
+  previousOwner: String!
+  newOwner: String!
+  eventsSummary: String!
+}
+
+type OwnershipTransferred {
+  id: ID!
+  previousOwner: String!
+  newOwner: String!
+  eventsSummary: String!
+}
+
+type Paused {
+  id: ID!
+  account: String!
+  eventsSummary: String!
+}
+
+type USDDeposited {
+  id: ID!
+  user: String!
+  shares: BigInt!
+  amount: BigInt!
+  daiAmount: BigInt!
+  eventsSummary: String!
+  timestamp: Int!
+}
+
+type Unpaused {
+  id: ID!
+  account: String!
+  eventsSummary: String!
+}
+
+type Upgraded {
+  id: ID!
+  implementation: String!
+  eventsSummary: String!
+}
