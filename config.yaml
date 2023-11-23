@@ -1,42 +1,26 @@
 name: Blast Bridge
 networks:
   - id: 1
-    start_block: 0
+    start_block: 18602739
     contracts:
       - name: LaunchBridge
         address:
           - 0x5F6AE08B8AeB7078cf2F96AFb089D7c9f51DA47d
         handler: src/EventHandlers.ts
         events:
-          - event: AdminChanged(address previousAdmin, address newAdmin)
-            requiredEntities:
-              - name: EventsSummary
-          - event: BeaconUpgraded(address indexed beacon)
-            requiredEntities:
-              - name: EventsSummary
           - event: ETHDeposited(address indexed user, uint256 shares, uint256 amount)
             requiredEntities:
               - name: EventsSummary
               - name: User
-          - event: Initialized(uint8 version)
-            requiredEntities:
-              - name: EventsSummary
-          - event: OwnershipTransferStarted(address indexed previousOwner, address indexed newOwner)
-            requiredEntities:
-              - name: EventsSummary
-          - event: OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-            requiredEntities:
-              - name: EventsSummary
-          - event: Paused(address account)
-            requiredEntities:
-              - name: EventsSummary
           - event: USDDeposited(address indexed user, uint256 shares, uint256 amount, uint256 daiAmount)
             requiredEntities:
               - name: EventsSummary
               - name: User
-          - event: Unpaused(address account)
-            requiredEntities:
-              - name: EventsSummary
-          - event: Upgraded(address indexed implementation)
+      - name: ChainlinkOracle
+        address:
+          - 0xE62B71cf983019BFf55bC83B48601ce8419650CC
+        handler: src/EventHandlers.ts
+        events:
+          - event: AnswerUpdated(int256 indexed current, uint256 indexed roundId, uint256 updatedAt)
             requiredEntities:
               - name: EventsSummary
