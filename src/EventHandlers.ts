@@ -32,7 +32,7 @@ const INITIAL_EVENTS_SUMMARY: EventsSummaryEntity = {
 };
 
 const INITIAL_USER: UserEntity = {
-  id: "0x000000",
+  id: "0x0000000",
   totalNumberOfDeposits: BigInt(0),
   numberOfETHDeposits: BigInt(0),
   numberOfUSDDeposits: BigInt(0),
